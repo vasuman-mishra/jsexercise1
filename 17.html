@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rollover Image Example</title>
+    <script type="text/javascript">
+        function changeImageOnHover(imageElement, newImageSrc) {
+            imageElement.onmouseover = function() {
+                imageElement.src = newImageSrc;
+            };
+            imageElement.onmouseout = function() {
+                imageElement.src = imageElement.getAttribute('original');
+            };
+        }
+
+        window.onload = function() {
+            var imageElement = document.getElementById('rolloverImage');
+            var newImageSrc = 'image.png'; // Path to the second image
+
+            // Store the original image source in a data attribute
+            imageElement.setAttribute('original', imageElement.src);
+
+            changeImageOnHover(imageElement, newImageSrc);
+        };
+    </script>
+</head>
+<body>
+    <img id="rolloverImage" src="yoyo.jpeg" alt="Rollover Image" />
+</body>
+</html>
